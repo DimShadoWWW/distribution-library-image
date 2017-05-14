@@ -7,4 +7,8 @@ case "$1" in
     serve|garbage-collect|help|-*) set -- registry "$@" ;;
 esac
 
-exec "$@"
+#exec "$@"
+while true;do
+   $@ 2>&1 |tee -a /log
+   sleep 1
+done
